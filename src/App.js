@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import LandingPage from './components/LandingPage';
+import PhotoGallery from './components/PhotoGallery';
+import Countdown from './components/Countdown';
+import Quiz from './components/Quiz';
+import Surprise from './components/Surprise';
+import Carousel from './components/Carousel';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [isBirthday, setIsBirthday] = useState(true);
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      // Set the exact time for the birthday (12:00 AM on 2024-10-03)
+      const birthday = new Date("2024-10-03T00:00:00");
+      const now = new Date();
+      const difference = birthday - now;
+
+      return difference > 0;  // Returns true if the birthday hasn't passed
+    };
+
+    const timer = setInterval(() => {
+      setIsBirthday(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Carousel/>
+      {/* {!isBirthday ? (  // Once the birthday arrives, it shows the surprise components
+        <>
+          <LandingPage />
+          <PhotoGallery />
+          <Quiz />
+          <Surprise />
+        </>
+      ) : (
+        <Countdown />
+      )} */}
     </div>
   );
-}
+};
 
 export default App;

@@ -1,0 +1,69 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fce4ec; /* Soft pastel pink background */
+  height: 96vh;
+  animation: fadeIn 1.5s ease; /* Animation for smooth entry */
+  text-align: center;
+  padding: 20px;
+}
+
+.text-container {
+  margin-bottom: 20px;
+}
+
+.landing-title {
+  font-size: 3rem;
+  color: #f48fb1; /* Light pastel pink */
+  animation: slideIn 1s forwards; /* Slide-in animation */
+}
+
+.landing-subtitle {
+  font-size: 1.5rem;
+  color: #6d4c41; /* Soft brown color */
+  margin-top: 10px;
+}
+
+.image-container {
+  display: flex;
+  gap: 20px; /* Space between images */
+  animation: bounce 1s infinite alternate; /* Bouncing animation */
+}
+
+.cute-image {
+  width: 200px; /* Adjust size as needed */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}

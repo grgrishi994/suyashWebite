@@ -1,0 +1,83 @@
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full page height */
+    background-color: black; /* Black background to represent space */
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px; /* Star pattern effect */
+    overflow: hidden;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    position: relative;
+    transition: all 0.5s ease-in-out; /* Smooth sliding effect */
+  }
+  
+  .carousel-card {
+    flex: 0 0 10%; /* Default small size for hidden planets */
+    margin: 0 20px;
+    text-align: center;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: scale(0.4);
+    opacity: 0.5;
+    position: relative;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+  }
+  
+  .carousel-card.active {
+    flex: 0 0 60%; /* Larger size for the active planet */
+    transform: scale(1.5) translateX(0); /* Grow and center the active planet */
+    opacity: 1;
+    z-index: 10;
+    display: block; /* Show the active planet */
+  }
+  
+  .carousel-card.side-left, .carousel-card.side-right {
+    flex: 0 0 20%; /* Smaller size for side planets */
+    transform: scale(0.8); /* Slightly larger than hidden planets */
+    opacity: 0.8;
+    display: block; /* Show the side planets */
+  }
+  
+  .carousel-card.side-left {
+    transform: translateX(-300px) scale(0.8); /* Slide left with more space */
+  }
+  
+  .carousel-card.side-right {
+    transform: translateX(300px) scale(0.8); /* Slide right with more space */
+  }
+  
+  .carousel-card.hidden {
+    display: none; /* Hide all other planets */
+  }
+  
+  .carousel-card img {
+    width: 250px; /* Increased size for planets */
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.8); /* Glowing effect */
+  }
+  
+  .planet-info {
+    margin-top: 20px;
+    color: white;
+  }
+  
+  .planet-info h2 {
+    font-size: 1.7rem;
+    margin: 0;
+  }
+  
+  .planet-info p {
+    font-size: 1.1rem;
+    margin-top: 5px;
+  }
+  

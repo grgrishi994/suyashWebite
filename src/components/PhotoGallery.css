@@ -1,0 +1,80 @@
+.gallery-section {
+  background-color: #f0e7db; /* Light beige background for the gallery section */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  height: 50vh;
+}
+
+.gallery-heading {
+  text-align: center;
+  color: #5d3a2e; /* Soft dark brown for better contrast */
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 40px;
+  font-size: 2rem; /* Adjust size as needed */
+}
+
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  animation: fadeIn 1s ease;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden; /* Ensures image doesn't overflow out of the gallery-item */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  width: 100%; /* Ensure gallery-item takes up available space */
+  height: 300px; /* Set a specific height for the gallery-item */
+}
+
+.gallery-item:hover {
+  transform: scale(1.05); /* Slightly enlarge the item on hover */
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%; /* Ensures the image fills the gallery item */
+  object-fit: cover; /* Ensures the image scales and maintains aspect ratio */
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1); /* Zoom the image slightly on hover */
+}
+
+
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1; /* Show caption on hover */
+}
+
+/* Fade-in animation for gallery */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

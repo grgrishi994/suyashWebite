@@ -1,0 +1,53 @@
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0f2f1; /* Light mint green background */
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+  height: 90vh;
+}
+
+.countdown h2 {
+  color: #00796b; /* Deep teal for the title */
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.countdown div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  color: #004d40; /* Darker teal for contrast */
+  font-size: 24px;
+}
+
+.countdown div span {
+  padding: 10px;
+  background-color: #b2dfdb; /* Light teal background for the time boxes */
+  border-radius: 10px;
+  margin: 0 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown div span:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
