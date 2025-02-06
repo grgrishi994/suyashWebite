@@ -1,105 +1,100 @@
-import React, { useState } from 'react';
-import './Quiz.css';
+import React, { useState } from "react";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import "./Quiz.css";
 
 const Quiz = () => {
   const questions = [
     {
       question: "What's my favorite thing about you?",
-      options: ["Your smile", "Your sense of humor", "Your kindness", "Everything!"],
-      answer: "Everything!"
+      answer: "The way you decode me , I hate you",
     },
     {
-      question: "What’s our go-to date night activity?",
-      options: ["Movie night", "Dinner date", "Long drive", "Staying in and chilling"],
-      answer: "Staying in and chilling"
+      question: "My favourite moment of us, guess?",
+      answer:
+        "Moment when I confessed and the way your expression changed, you were not expecting this, firse kaise recreate kar sakte hai wo moment(puppy face)?? ",
     },
     {
       question: "Where did we go on our first date?",
-      options: ["Cafe", "Movie theater", "Beach", "Park"],
-      answer: "Movie theater"
+      answer: "",
+    },
+    {
+      question: "Thing i hate about you?",
+      answer: "Your Ciggerattes",
     },
     {
       question: "What’s the cutest thing we’ve done together?",
-      options: ["Cooking together", "Late-night talks", "Surprising each other", "Planning trips"],
-      answer: "Late-night talks"
+      answer: "Late-night talks",
     },
     {
       question: "What’s the best surprise I’ve given you?",
-      options: ["A handwritten letter", "A special date", "A cute gift", "All of the above"],
-      answer: "All of the above"
+      answer: "Kya surprise chahiye , mai kaafi nahi?",
     },
     {
-      question: "What’s our favorite holiday destination?",
-      options: ["Mountains", "Beach", "City escape", "Countryside"],
-      answer: "Beach"
+      question: "What’s my favorite part of your body?",
+      answer: "aapke shoulders",
     },
     {
       question: "What nickname do I call you the most?",
-      options: ["Baby", "Love", "Motka Dudu", "Yashu"],
-      answer: "Motka Dudu"
+      answer: "Baby",
     },
     {
       question: "What’s the best part of being together?",
-      options: ["Sharing everything", "Laughing together", "Our adventures", "All of it"],
-      answer: "All of it"
-    }
-    // Add more questions here
+      answer:
+        "Scooty ride, and seeing you blush in that mirror , haaaayeee mera dil ",
+    },
   ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState('');
-  const [feedback, setFeedback] = useState('');
-  const [score, setScore] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    if (option === questions[currentQuestion].answer) {
-      setScore(score + 1);
-      setFeedback('Correct! 🎉');
-    } else {
-      setFeedback('Oops! Wrong Answer.');
-    }
+  const handleRevealClick = () => {
+    setShowAnswer(true);
+  };
 
-    // Start transition after a short wait
-    setTimeout(() => {
-      setIsTransitioning(true); // Start fade out
-    }, 1000); // Wait for 1 second before fading out
+  const handleNextClick = () => {
+    setShowAnswer(false);
+    setCurrentQuestion((prev) => Math.min(prev + 1, questions.length - 1));
+  };
 
-    // Move to the next question after 2 seconds total
-    setTimeout(() => {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedOption('');
-      setFeedback('');
-      setIsTransitioning(false); // Reset transition
-    }, 2000); // Move to the next question after 2 seconds
+  const handlePrevClick = () => {
+    setShowAnswer(false);
+    setCurrentQuestion((prev) => Math.max(prev - 1, 0));
   };
 
   return (
     <div className="quiz-section">
-      <h2 className="quiz-heading">Fun Quiz Time!</h2>
+      <h2 className="quiz-heading">Fun facts!</h2>
       {currentQuestion < questions.length ? (
-        <div className={`quiz-card ${isTransitioning ? 'fade-out' : 'fade-in'}`}>
+        <div className="quiz-card">
           <h3>{questions[currentQuestion].question}</h3>
-          <div className="options-container">
-            {questions[currentQuestion].options.map((option, index) => (
-              <div
-                key={index}
-                className={`option ${selectedOption === option ? 'selected' : ''}`}
-                onClick={() => handleOptionClick(option)}
-              >
-                {option}
-              </div>
-            ))}
+          {showAnswer ? (
+            <div className="answer-display">
+              <p>{questions[currentQuestion].answer}</p>
+            </div>
+          ) : (
+            <button className="reveal-button" onClick={handleRevealClick}>
+              Reveal Answer
+            </button>
+          )}
+          <div className="navigation-buttons">
+            <ArrowForwardIosSharpIcon
+              onClick={handlePrevClick}
+              disabled={currentQuestion === 0}
+            />
+            {/* <button className="prev-button">Previous</button> */}
+            <button
+              className="next-button"
+              onClick={handleNextClick}
+              disabled={currentQuestion === questions.length - 1}
+            >
+              Next
+            </button>
           </div>
-          {feedback && <div className="feedback">{feedback}</div>}
         </div>
       ) : (
         <div className="quiz-card">
           <div className="score-display">
-            <h3>
-              Your Score: <span className="score">{score}</span>/<span className="total">{questions.length}</span>
-            </h3>
+            <h3>Congratulations! I am all yours babe</h3>
           </div>
         </div>
       )}

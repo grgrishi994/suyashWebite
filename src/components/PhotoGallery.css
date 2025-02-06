@@ -28,7 +28,7 @@
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-  width: 100%; /* Ensure gallery-item takes up available space */
+  width: 90%; /* Ensure gallery-item takes up available space */
   height: 300px; /* Set a specific height for the gallery-item */
 }
 

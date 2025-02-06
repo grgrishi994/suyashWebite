@@ -4,7 +4,7 @@ import './Countdown.css';
 const Countdown = () => {
   const calculateTimeLeft = () => {
     // Set the exact birthday date and time (midnight on October 3rd, 2024)
-    const birthday = new Date("2024-10-03T00:00:00");
+    const birthday = new Date("2025-02-11T00:00:00");
     const now = new Date();
     const difference = birthday - now;
 

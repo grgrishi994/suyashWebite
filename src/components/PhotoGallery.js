@@ -3,14 +3,16 @@ import './PhotoGallery.css';
 
 const PhotoGallery = () => {
   const photos = [
-    { url: `${process.env.PUBLIC_URL}/images/image1.jpeg`, caption: 'Vishakhapatnam Trip' },
-    { url: `${process.env.PUBLIC_URL}/images/image3.jpeg`, caption: 'First Sasural Trip' },
-    { url: `${process.env.PUBLIC_URL}/images/image4.jpeg`, caption: 'First Date' },
-    { url: `${process.env.PUBLIC_URL}/images/image5.jpeg`, caption: 'The Proposal' },
-    { url: `${process.env.PUBLIC_URL}/images/image11.jpeg`, caption: 'Darjeeling' },
-    { url: `${process.env.PUBLIC_URL}/images/image7.jpeg`, caption: 'Puri Trip' },
-    { url: `${process.env.PUBLIC_URL}/images/image8.jpeg`, caption: 'The lovy dovy pic' },
-    // Add more photos here
+    { url: `${process.env.PUBLIC_URL}/images/image1.jpeg`, caption: 'First photo together' },
+    { url: `${process.env.PUBLIC_URL}/images/image3.jpeg`, caption: 'favourite view' },
+    { url: `${process.env.PUBLIC_URL}/images/image4.jpeg`, caption: 'First couple pose wali pic' },
+    { url: `${process.env.PUBLIC_URL}/images/image9.jpeg`, caption: 'My happy place' },
+    { url: `${process.env.PUBLIC_URL}/images/image7.jpeg`, caption: 'yaha mai pighal gyi' },
+    { url: `${process.env.PUBLIC_URL}/images/image2.jpeg`, caption: 'our first pic together' },
+    { url: `${process.env.PUBLIC_URL}/images/image6.jpeg`, caption: 'when you look super hot' },
+    { url: `${process.env.PUBLIC_URL}/images/image8.jpeg`, caption: 'my favourite pic of us' },
+    { url: `${process.env.PUBLIC_URL}/images/image10.jpeg`, caption: 'Moment I realised I am obsessed' },
+    { url: `${process.env.PUBLIC_URL}/images/image5.jpeg`, caption: 'You are now mine, Mr. Shubham Kanodia' },
   ];
 
   return (
